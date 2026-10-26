@@ -4,10 +4,10 @@ const todoList = document.getElementById('incompleteTasks');
 const completedList = document.getElementById('completed-tasks');
 
 const createTaskEditInput = function () {
-  const editInput = document.createElement('input');
-  editInput.type = 'text';
-  editInput.className = 'task';
-  return editInput;
+  const taskEditInput = document.createElement('input');
+  taskEditInput.type = 'text';
+  taskEditInput.className = 'task';
+  return taskEditInput;
 };
 
 const createDeleteButton = function () {
@@ -53,15 +53,15 @@ const addTask = function () {
 const editTask = function () {
   const taskItem = this.parentNode;
 
-  const editInput = taskItem.querySelector('input[type=text]');
+  const taskEditInput = taskItem.querySelector('input[type=text]');
   const label = taskItem.querySelector('label');
   const editButton = taskItem.querySelector('.edit');
   const isEditing = taskItem.classList.contains('editMode');
   if (isEditing) {
-    label.innerText = editInput.value;
+    label.innerText = taskEditInput.value;
     editButton.innerText = 'Edit';
   } else {
-    editInput.value = label.innerText;
+    taskEditInput.value = label.innerText;
     editButton.innerText = 'Save';
   }
 
